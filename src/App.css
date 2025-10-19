@@ -1,38 +1,215 @@
-.App {
-  text-align: center;
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #eaf3f3;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.save-segment-btn {
+  background-color: #007b7f;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.save-segment-btn:hover {
+  background-color: #005f63;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.side-modal {
+  background: white;
+  width: 100%;
+  max-width: 450px;
+  height: 100%;
+  padding: 24px;
+  overflow-y: auto;
+  animation: slideIn 0.3s ease forwards;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.modal-header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+  color: #007b7f;
+  margin-bottom: 24px;
+}
+
+.modal-header h3 {
+  font-size: 22px;
+  font-weight: 600;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.back-arrow {
+  font-size: 22px;
+  border: none;
+  background: none;
+  color: white;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.modal-body label {
+  font-size: 16px;
+  color: #222;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.modal-body input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+.info-text {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 12px;
+}
+
+.trait-legend {
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.user {
+  background-color: #4caf50;
+}
+.group {
+  background-color: #d33f6a;
+}
+.neutral {
+  background-color: #ccc;
+}
+
+.schema-box {
+  border: 2px solid #b8dfff;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.schema-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.schema-row select {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.remove-btn {
+  border: none;
+  background-color: #f0f0f0;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  color: #555;
+}
+
+.add-link {
+  color: #009688;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.save-btn {
+  background-color: #007b7f;
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: #f7f7f7;
+  color: #d33f6a;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .side-modal {
+    max-width: 100%;
   }
-  to {
-    transform: rotate(360deg);
+  .modal-header h3 {
+    font-size: 20px;
+    color: white;
   }
+  .save-btn,
+  .cancel-btn {
+    flex: 1;
+  }
+}
+
+.error-text {
+  color: red;
+  font-size: 14px;
+  margin-top: 8px;
+  text-align: left;
+}
+
+.save-btn:disabled {
+  background-color: #c6c6c6;
+  color: #777;
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.7;
 }
